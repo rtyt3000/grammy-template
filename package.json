@@ -4,8 +4,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "bun run src/bot.ts",
+    "dev": "bun run src/bot.ts",
+    "start": "bun run dist/bot.js",
     "build": "bun build src/bot.ts --target bun --outdir dist",
+    "db:deploy": "bun prisma migrate deploy && bun prisma generate",
     "lint": "eslint . --ext .ts"
   },
   "devDependencies": {
@@ -21,6 +23,7 @@
   },
   "dependencies": {
     "@grammyjs/runner": "^2.0.3",
+    "@prisma/client": "^6.17.1",
     "dotenv": "^17.2.3",
     "grammy": "^1.38.3",
     "prisma": "^6.17.1",
