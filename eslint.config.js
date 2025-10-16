@@ -1,8 +1,9 @@
 import eslint from '@eslint/js';
 import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
+import {defineConfig} from "eslint/config"
 
-export default tseslint.config(
+export default defineConfig([
     eslint.configs.recommended,
     ...tseslint.configs.strictTypeChecked,
     ...tseslint.configs.stylisticTypeChecked,
@@ -20,10 +21,13 @@ export default tseslint.config(
     },
     // TypeScript
     {
-        rules: {}
+        rules: {
+            "@typescript-eslint/no-confusing-void-expression": "off",
+            "@typescript-eslint/no-misused-promises": "off"
+        }
     },
     // Stylistic
     {
         rules: {}
     }
-);
+]);

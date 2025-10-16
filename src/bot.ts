@@ -9,4 +9,9 @@ for (const handler of Object.values(handlers)) {
     bot.use(handler);
 }
 
-run(bot)
+const runner = run(bot)
+
+const stopRunner = async () => runner.isRunning() && await runner.stop()
+
+process.once("SIGINT", stopRunner)
+process.once("SIGTERM", stopRunner)
