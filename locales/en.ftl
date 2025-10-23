@@ -1,0 +1,1 @@
+start = Hello! I'm your bot. How can I assist you today?
